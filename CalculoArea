@@ -1,0 +1,24 @@
+#include "stdafx.h"
+#include <iostream>
+#include "math.h"
+#include "conio.h"
+
+using namespace std;
+
+void main()
+{
+	//Declarar variables
+	float a,b,c,s,area;
+	cout<<"Ingresar lado 1: ";
+	cin>>a;
+	cout<<"Ingresar lado 2: ";
+	cin>>b;
+	cout<<"Ingresar lado 3: ";
+	cin>>c;
+	s = ((a+b+c)/2);
+	area = sqrt(s*(s-a)*(s-b)*(s-c));
+	cout<<"El A es: "<<area;
+
+	system("PAUSE");
+
+}
