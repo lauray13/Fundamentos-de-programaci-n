@@ -1,0 +1,30 @@
+#include <iostream>
+#include "math.h"
+
+using namespace std;
+
+int main()
+{
+	string nombre;
+	int horas,precio;
+	cout<<"Ingrese su nombre"<<endl;
+	cin>>nombre;
+	cout<<"Ingrese cantidad horas trabajadas al mes"<<endl;
+	cin>>horas;
+	cout<<"Ingrese el precio por hora"<<endl;
+	cin>>precio;
+	float salariobruto= horas*precio;
+	cout<<"El salario bruto es "<<salariobruto<<endl;
+	float iva= 0.13;
+	float salarionetoiva= salariobruto-(salariobruto*iva);
+	if(salariobruto>8272)
+	{
+		cout<<"Se tiene que aplicar RC-IVA"<<endl;
+		cout<<"El salario neto es "<<salarionetoiva<<endl;
+	}
+	else
+	{
+		cout<<"No se tiene que aplicar RC-IVA"<<endl;
+	}
+	return 0;
+}
