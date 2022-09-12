@@ -19,15 +19,15 @@ int main()
 		cout<<"Minuto: "<<minutos<<endl;
 		cout<<"Segundos: "<<aux2<<endl;
 	}
-	if(segundos>=60)
-	{
-		minutos=segundos/60;
-		aux2=segundos%60;
-		cout<<"Minutos: "<<minutos<<endl;
-		cout<<"Segundos: "<<aux2<<endl;	
-	}
 	else
 	{
+		if(segundos>=60)
+		{
+			minutos=segundos/60;
+			aux2=segundos%60;
+			cout<<"Minutos: "<<minutos<<endl;
+			cout<<"Segundos: "<<aux2<<endl;	
+		}
 		cout<<"Segundos: "<<segundos<<endl;
 	}
 	return 0;
