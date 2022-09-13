@@ -1,0 +1,32 @@
+#include <iostream>
+#include <math.h>
+
+using namespace std;
+
+int main()
+{
+	int inicio=1;
+	int n;
+	int acumuladorPar=0;
+	int acumuladorImpar=0;
+	cout<<"¿Hasta que numero?"<<endl;
+	cin>>n;
+	for(int i=inicio;i<=n;i++)
+	{
+		if(i%2==0)
+		{
+			cout<<"Numero par "<<i<<endl;
+			acumuladorPar=acumuladorPar + i;
+		}
+		else
+		{
+			cout<<"Numero impar "<<i<<endl;
+			acumuladorImpar = acumuladorImpar+i;
+		}
+	}
+	cout<<"Suma de pares: "<<acumuladorPar<<endl;
+	cout<<"Suma de impares: "<<acumuladorImpar<<endl;
+	int paresNegativos=acumuladorPar*(-1);
+	cout<<"La suma total es: "<<acumuladorImpar+paresNegativos<<endl;
+	return 0;
+}
