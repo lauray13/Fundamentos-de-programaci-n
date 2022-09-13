@@ -15,3 +15,25 @@ int main()
 	cout<<"La suma de los N primeros numeros es: "<<s;
 	return 0;
 }
+
+OTRA FORMA DE HACER (AYUDANTIA)
+
+#include <iostream>
+#include <math.h>
+
+using namespace std;
+
+int main()
+{
+	int inicio=1;
+	int n,alcuadrado;
+	int s=0;
+	cout<<"Hasta que numero?"<<endl;
+	cin>>n;
+	for(int i=inicio;i<=n;i++)
+	{
+		alcuadrado=pow(i,2);
+		s=s+alcuadrado;
+	}
+	cout<<"La suma de los cuadrados es: "<<s<<endl;
+}
