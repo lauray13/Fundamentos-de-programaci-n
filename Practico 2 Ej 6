@@ -1,0 +1,23 @@
+#include <iostream>
+#include <math.h>
+
+using namespace std;
+
+int main()
+{
+	int x,n;
+	int i;
+	int inicio=1;
+	int cuadrado=i;
+	int s=0;
+	cout<<"Ingrese el valor de x"<<endl;
+	cin>>x;
+	cout<<"Hasta que numero quiere elevar n?"<<endl;
+	cin>>n;
+	for(int i=inicio;i<=n;i++)
+	{
+		s=s+(pow(x,i));
+	}
+	cout<<"Las suma es: "<<s<<endl;
+	return 0;
+}
