@@ -1,0 +1,17 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	int i,n,s;
+	cout<<"Ingrese el numero de elementos: "<<endl;
+	cin>>n;
+	s=0;//Acumulador
+	for(i=1;i<=n;i++)
+	{
+		s=s+(i*i);
+	}
+	cout<<"La suma de los cuadrados de los primeros N numeros enteros es: "<<s;
+	return 0;
+}
