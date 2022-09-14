@@ -1,0 +1,49 @@
+#include "stdafx.h"
+#include <iostream>
+#include "ctype.h"
+#include "conio.h"
+
+using namespace std;
+
+void main()
+{
+	char nota;
+	do
+	{
+		cout<<endl;
+		cout<<"C.- DO"<<endl;
+		cout<<"D.- RE"<<endl;
+		cout<<"E.- MI"<<endl;
+		cout<<"F.- FA"<<endl;
+		cout<<"G.- SOL"<<endl;
+		cout<<"A.- LA"<<endl;
+		cout<<"B.- SI"<<endl;
+		cout<<"0.- Salir"<<endl;
+		cout<<"Seleccione la nota "<<endl;
+		cin>>nota;
+		nota=toupper(nota);
+		switch (nota)
+		{
+			case 'C': 
+				cout<<"Imprimiendo DO...."<<endl;break;
+			case 'D':
+				cout<<"Imprimiendo RE...."<<endl;break;
+			case 'E':
+				cout<<"Imprimiendo MI...."<<endl;break;
+			case 'F':
+				cout<<"Imprimiendo FA...."<<endl;break;
+			case 'G':
+				cout<<"Imprimiendo SOL...."<<endl;break;
+			case 'A':
+				cout<<"Imprimiendo LA...."<<endl;break;
+			case 'B':
+				cout<<"Imprimiendo SI...."<<endl;break;
+			case '0':cout<<"Salir"<<endl;break;
+			default:cout << "Nota no existente" <<endl;
+		}
+		
+	}
+	while (nota!='0');
+	getch();
+}
+
