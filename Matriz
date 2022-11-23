@@ -1,0 +1,94 @@
+//mostrar la diagonal de una matrix
+#include <iostream>
+#include <conio.h>
+#include "stdlib.h"
+#define MAX 20
+
+using namespace std;
+
+void mostrarmatriz(int MATRIZ[MAX][MAX], int m, int n);
+void cargarmatriz(int MATRIZ[MAX][MAX], int m, int n);
+void mostrardiagonal(int MATRIZ[MAX][MAX], int m, int n);
+int main()
+{
+	int matriz[MAX][MAX],fila,columna,opcion,diagonal;
+	do
+	{
+		cout<<"Ingrese el numero de filas"<<endl;
+		cin>>fila;
+	}while((fila<=0)||(fila>MAX));
+	do
+	{
+		cout<<"Ingrese el numero de columnas"<<endl;
+		cin>>columna;
+	}while((columna<=0)||(columna>MAX));
+	do
+	{
+		cout<<"MENU"<<endl;
+		cout<<"----------------------"<<endl;
+		cout<<"(1) CARGAR MATRIZ"<<endl;
+		cout<<"(2) MOSTRAR MATRIZ"<<endl;
+		cout<<"(3) MOSTRAR LA DIAGONAL DE LA MATRIZ"<<endl;
+		cout<<"(0) SALIR"<<endl;
+		cout<<"----------------------"<<endl;
+		cout<<"Opcion: "<<endl;
+		cout<<"----------------------"<<endl;
+		cin>>opcion;
+		cout<<"----------------------"<<endl;
+		switch(opcion)
+		{
+			case 1: cargarmatriz(matriz,fila,columna);
+					break;
+			case 2: mostrarmatriz(matriz,fila,columna);
+					break;
+			case 3: mostrardiagonal(matriz,fila,columna);
+					break;
+			case 0: cout<<"SALIR"<<endl;
+					break;
+			default: cout<<"Error"<<endl;;
+					break;
+		}
+		getch();
+		system("cls");//Limpie la pantalla y funciona con stdlib
+	}while(opcion!=0);
+}
+
+void cargarmatriz(int MATRIZ[MAX][MAX], int m, int n)
+{
+	for(int f=0;f<m;f++)
+	{
+		for(int c=0;c<n;c++)
+		{
+			cout<<"MATRIZ["<<f<<"]["<<c<<"]= "<<endl;
+			cin>>MATRIZ[f][c];
+		}
+	}
+}
+
+void mostrarmatriz(int MATRIZ[MAX][MAX], int m, int n)
+{
+	for(int f=0;f<m;f++)
+	{
+		for(int c=0;c<n;c++)
+		{
+			cout<<MATRIZ[f][c]<<"\t";
+		}
+		cout<<endl;
+	}
+}
+
+void mostrardiagonal(int MATRIZ[MAX][MAX], int m, int n)
+{
+	if(m!=n)
+	{
+		cout<<"NO SE PUEDE MOSTRAR"<<endl;
+	}
+	else
+	{
+		for(int f=0;f<m;f++)
+		{
+			cout<<MATRIZ[f][f]<<"\t";
+		}
+		cout<<endl;
+	}
+}
