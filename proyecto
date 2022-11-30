@@ -1,0 +1,109 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+void CategoriaInfluencer(int opcion);
+void ServicioInfluencer(int opcion);
+void PresupuestoInfluencer(int opcion);
+
+int main()
+{
+	int opcion;
+	cout<<"INFLUENCER"<<endl;
+	cout<<"[1] Siguiente"<<endl;
+	cout<<"[0] Atras"<<endl;
+	cin>>opcion;
+	if(opcion==1)
+	{
+		cout<<"Categoria"<<endl;
+		cout<<"___________________"<<endl;
+		CategoriaInfluencer(opcion);		
+		cout<<"___________________"<<endl;
+		cout<<"Servicio"<<endl;
+		cout<<"___________________"<<endl;
+		ServicioInfluencer(opcion);
+		cout<<"___________________"<<endl;
+		cout<<"Presupuesto"<<endl;
+		cout<<"___________________"<<endl;		
+		PresupuestoInfluencer(opcion);
+		cout<<"Su cuenta ha sido registrada con EXITO"<<endl;
+	}
+	else
+	{
+		cout<<"Volviendo atras"<<endl;
+	}
+	return 0;
+}
+void CategoriaInfluencer(int opcion)
+{
+	int seguidores,c;
+	string rs;
+	cout<<"Seleccione a que categoria pertenece"<<endl;
+	cout<<"[1]   Celebrity"<<endl;
+	cout<<"[2]   Fitness"<<endl;
+	cout<<"[3]   Gamer"<<endl;
+	cout<<"[4]   Foodie"<<endl;
+	cout<<"[5]   Entretenimiento"<<endl;
+	cout<<"[6]   Viaje"<<endl;
+	cout<<"[7]   Moda"<<endl;			
+	cout<<"___________________"<<endl;
+	cin>>c;
+	cout<<"___________________"<<endl;
+	cout<<"En que Red Social trabaja?"<<endl;
+	cin>>rs;
+	cout<<"___________________"<<endl;
+	cout<<"Cuantos seguidores tiene en esa red social?"<<endl;
+	cin>>seguidores;
+	if((seguidores>0) && (seguidores<=10000))
+	{
+		cout<<"Es un Nano Influencer"<<endl;
+	}
+	if((seguidores>10000) && (seguidores<=100000))
+	{
+		cout<<"Es un Micro Influencer"<<endl;
+	}
+	if((seguidores>100000) && (seguidores<=1000000))
+	{
+	cout<<"Es un Macro Influencer"<<endl;
+	}
+	if(seguidores>1000000)
+	{
+	cout<<"Es un Mega Influencer"<<endl;
+	}
+}
+
+void ServicioInfluencer(int opcion)
+{
+	int servicio;
+	cout<<"Que servicio brinda?"<<endl;
+	cout<<"	Selecciones uno"<<endl;
+	cout<<"[1]   Post en Redes Sociales"<<endl;
+	cout<<"[2]   Video en Redes Sociales"<<endl;
+	cout<<"[3]   Maestro de Ceremonia"<<endl;
+	cout<<"[4]   Participacion en Eventos"<<endl;
+	cin>>servicio;
+	if(servicio==4)
+	{
+		int evento;
+		string otroevento;
+		cout<<"En que eventos suele participar?"<<endl;
+		cout<<"[1] FexpoCruz"<<endl;
+		cout<<"[2] Ferias automotrices"<<endl;
+		cout<<"[3] Ferias agronomicas"<<endl;
+		cout<<"[4] Ferias empresariales"<<endl;
+		cout<<"[5] Ferias universitarias"<<endl;
+		cout<<"[6] Otro"<<endl;
+		cin>>evento;
+		if(evento==6)
+		{
+			cout<<"En que otro evento ha participado?"<<endl;
+			cin>>otroevento;
+		}
+	}	
+}
+void PresupuestoInfluencer(int opcion)
+{
+	int precio;
+	cout<<"Cuanto cobra por su servico de Influencer? EN DOLARES"<<endl;
+	cin>>precio;
+}
