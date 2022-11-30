@@ -1,0 +1,111 @@
+#include <iostream>
+#include <string>
+
+#define MAX 10
+
+using namespace std;
+
+// prototipos
+
+void cargar(string A[], int tam); // Pide los datos
+void mostrar(string A[], int tam); // Muestra los datos
+void burbuja(string A[], int tam); // Clasifica los datos
+void unir(string A[],int n, string B[], int m, string C[], int z); //clasifica
+
+int main()
+{
+    string nombre[MAX],nombre2[MAX],nombret[MAX];
+    int n,m,z;
+    do {
+        cout<<"Ingrese el numero de clientes de la lista 1: ";
+        cin>>n;
+    } while ((n>MAX) || (n<=0));
+    cargar(nombre,n);
+    do {
+        cout<<"Ingrese el numero de clientes de la lista 2: ";
+        cin>>m;
+    } while ((m>MAX) || (m<=0));
+    cargar(nombre2,m);
+    burbuja(nombre,n);
+    burbuja(nombre2,m);
+    z=n+m;
+    unir(nombre,n,nombre2,m,nombret,z);
+    cout<<"La lista de clientes"<<endl;
+    mostrar(nombret, z);
+//    cout<<endl<<"La lista clasificada es: "<<endl;
+//    burbuja(nombret,z);
+//    mostrar(nombret,z);
+    return 0;
+}
+
+void cargar(string A[], int tam)
+{
+    cin.ignore(); // Limpia de caracteres no validos
+    for (int i=0;i<tam;i++)
+    {
+        cout<<"Cliente ["<<i<<"]: ";
+        getline(cin,A[i]);
+    }
+}
+
+void mostrar(string A[], int tam)
+{
+   for (int i=0;i<tam;i++)
+    {
+        cout<<"Cliente ["<<i<<"]: "<<A[i]<<endl;
+    }
+}
+
+void burbuja(string A[], int tam) // Clasifica los datos
+{
+    string aux;
+    for (int i=0; i<tam-1;i++)
+        for (int j=i+1;j<tam;j++)
+            if (A[i]>A[j])
+            {
+                aux=A[j];
+                A[j]=A[i];
+                A[i]=aux;
+            }
+}
+/*
+//Concatenar
+void unir(string A[],int n, string B[], int m, string C[], int z)
+{
+    for (int i=0;i<n;i++)
+        C[i]=A[i];
+    for (int i=0;i<m;i++)
+        C[i+n]=B[i];
+}
+*/
+
+//Mezclar
+void unir(string A[],int n, string B[], int m, string C[], int z)
+{
+    int pa=0, pb=0, i=0;
+    while ((pa<n) && (pb<m))  // Estos es mientras tenga datos en los dos vectores
+    {
+        if (A[pa]<B[pb])
+        {
+            C[i]=A[pa];
+            i++;
+            pa++;
+        }
+        else
+        {
+            C[i]=B[pb];
+            i++;
+            pb++;
+        }
+    }
+    for (int j=pa;j<n;j++)
+    {
+        C[i]=A[j];
+        i++;
+    }
+    for (int j=pb;j<m;j++)
+    {
+        C[i]=B[j];
+        i++;
+    }
+}
