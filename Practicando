@@ -64,3 +64,77 @@ int main()
 	cout<<"El promedio es:"<<promedio<<endl;
 	return 0;
 }
+
+//15.Un vector tiene la lista de alumnos y otro vector tiene las notas. Hacer un programa para obtener las tres mejores notas.
+//Sugerencia: Clasificar el vector en orden descendente y luego listar los tres primeros, hay que tener cuidado cuando se 
+//intercambia los elementos del vector de alumnos también se debe intercambiar las notas.
+
+#include <iostream>
+#include <string>
+#define MAX 10
+using namespace std;
+void alumnos(string nombre[], int tamano);
+void mostraralumnos(string nombre[], int tamano);
+void cargar_notas(string nombre[],int nota[],int tamano);
+void mostrar_notas(string nombre[],int nota[],int tamano);
+void mejores_notas(string nombre[],int nota[],int tamano);
+int main()
+{
+	string n[MAX];
+	int t,calificacion[MAX];
+	cout<<"Ingrese la cantidad de alumnos"<<endl;
+	cin>>t;
+	alumnos(n,t);
+	cargar_notas(n,calificacion,t);
+	mostraralumnos(n,t);
+	mostrar_notas(n,calificacion,t);
+	mejores_notas(n,calificacion,t);
+}
+
+void alumnos(string nombre[],int tamano)
+{
+	cin.ignore(); 
+	for(int i=1;i<=tamano;i++)
+	{
+	cout<<"Ingrese el nombre del alumno"<<endl;
+	getline(cin,nombre[i]);
+	}
+}
+
+void mostraralumnos(string nombre[],int tamano)
+{
+	for(int i=1;i<=tamano;i++)
+	{
+	cout<<"Alumno "<<i<<":"<<nombre[i]<<endl;
+	}
+}
+
+void cargar_notas(string nombre[],int nota[],int tamano)
+{
+	for(int i=1;i<=tamano;i++)
+	{
+	cout<<"Ingrese la nota de "<<nombre[i]<<":"<<endl;
+	cin>>nota[i];
+	}
+}
+
+void mostrar_notas(string nombre[],int nota[],int tamano)
+{
+	for(int i=1;i<=tamano;i++)
+	{
+	cout<<"Nota de "<<nombre[i]<<":"<<nota[i]<<endl;
+	}
+}
+
+void mejores_notas(string nombre[],int nota[],int tamano)
+{
+	int mayor=0;
+	string name;
+	for(int i=1;i<=tamano;i++)
+	{
+		if(nota[i]>mayor)
+		mayor=nota[i];
+		name=nombre[i];
+	}
+	cout<<"La mejor calificacion es: "<<mayor<<" de "<<name<<endl;
+}
