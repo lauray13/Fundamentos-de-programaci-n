@@ -1,0 +1,66 @@
+//1.	Hacer un programa para sacar el máximo valor de un vector de valores ya sean reales o enteros.
+#include <iostream>
+#define MAX 10
+
+using namespace std;
+
+int main()
+{
+	int numero[MAX],t,mayor=0;
+	cout<<"Cuantos numeros va a ingresar?"<<endl;
+	cin>>t;
+	for(int i=0;i<t;i++)
+	{
+		cout<<"Digite el numero"<<endl;
+		cin>>numero[i];
+		if(numero[i]>mayor)
+		{
+			mayor=numero[i];
+		}
+	}
+	cout<<"El mayor es:"<<mayor<<endl;
+}
+
+//2.	Hacer un programa para sacar el mínimo valor de un vector de valores ya sean reales o enteros.
+#include <iostream>
+#define MAX 10
+using namespace std;
+
+int main()
+{
+	int num[MAX],t,menor;
+	cout<<"Ingrese el tamaño del vector"<<endl;
+	cin>>t;
+	for(int i=0;i<t;i++)
+	{
+		cout<<"Ingrese el numero"<<endl;
+		cin>>num[i];
+		if(num[i]<menor)
+		{
+			menor=num[i];
+		}
+	}
+	cout<<"El menor es:"<<menor<<endl;
+	return 0;
+}
+
+//3.	Hacer un programa para sacar el promedio de valores de un vector.
+#include <iostream>
+#define MAX 10
+using namespace std;
+
+int main()
+{
+	int num[MAX],t,s=0,promedio;
+	cout<<"Ingrese el tamano del vector"<<endl;
+	cin>>t;
+	for(int i=0;i<t;i++)
+	{
+		cout<<"Ingrese el numero"<<endl;
+		cin>>num[i];
+		s=s+num[i];
+		promedio=(s/t);
+	}
+	cout<<"El promedio es:"<<promedio<<endl;
+	return 0;
+}
