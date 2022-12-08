@@ -78,6 +78,7 @@ void mostraralumnos(string nombre[], int tamano);
 void cargar_notas(string nombre[],int nota[],int tamano);
 void mostrar_notas(string nombre[],int nota[],int tamano);
 void mejores_notas(string nombre[],int nota[],int tamano);
+void menor_calificacion(string nombre[],int nota[],int tamano);
 int main()
 {
 	string n[MAX];
@@ -89,6 +90,7 @@ int main()
 	mostraralumnos(n,t);
 	mostrar_notas(n,calificacion,t);
 	mejores_notas(n,calificacion,t);
+	menor_calificacion(n,calificacion,t);
 }
 
 void alumnos(string nombre[],int tamano)
@@ -137,4 +139,19 @@ void mejores_notas(string nombre[],int nota[],int tamano)
 		name=nombre[i];
 	}
 	cout<<"La mejor calificacion es: "<<mayor<<" de "<<name<<endl;
+}
+void menor_calificacion(string nombre[],int nota[],int tamano)
+{
+	int menor=0;
+	string name;
+	for(int i=1;i<=tamano;i++)
+	{
+       menor=nota[i];
+       if(nota[i]<menor)
+	   {
+	     menor=nota[i];
+	   }
+	    name=nombre[i];
+	}
+	cout<<"La menor calificacion es: "<<menor<<" de "<<name<<endl;
 }
