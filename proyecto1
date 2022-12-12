@@ -1,8 +1,8 @@
 #include <iostream>
 #include <string>
 #include "conio.h"
-#include <stdlib.h>
-#include <windows.h>
+#include <stdlib.h>//para el exit
+#include <windows.h>//para el sleep
 #define MAX 1000
 
 using namespace std;
