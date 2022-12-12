@@ -1,0 +1,499 @@
+#include <iostream>
+#include <string>
+#include "conio.h"
+#include <stdlib.h>
+#include <windows.h>
+#define MAX 1000
+
+using namespace std;
+
+void TipodeCuenta(int cuenta);
+void Inicio(int o);
+void Nombre(string name[]);
+void Apellidos(string lastname[]);
+void Correo(string email[]);
+void Usuario(string user[]);
+void ContrasenaRegistro(string password[], string passwordos[]);
+void ContrasenaInicio(string passwordinicio[]);
+
+void NombreEmpresa(string empresa[]);
+void TipoDeEmpresa(int tipo);
+void empresaActividadEconomica(int opcion);
+void empresaTamano(int opcion);
+void empresaServicio(int opcion);
+void empresapresupuesto(int opcion);
+void Ciudad(string dep[]);
+
+void CategoriaInfluencer(int opcion);
+void ServicioInfluencer(int opcion);
+void PresupuestoInfluencer(int opcion);
+void cargarRedSocial(string RS[]);
+void mostrarRedSocial(string RS[]);
+void Seguidores(int followers);
+
+void Pantallados(int a);
+void Pantallados_1(int b);
+void Configuracion(int c);
+
+int main()
+{
+ 	int opcion, s,t,f;
+ 	string nombre[MAX],nombreempresa[MAX], u[MAX], n[MAX], a[MAX];
+	Inicio(opcion);
+	do{
+		cout<<"SELECCIONE QUE TIPO DE CUENTA ES:"<<endl;
+		cout<<"[1] EMPRESA"<<endl;
+		cout<<"[2] CREADOR DE CONTENIDO"<<endl;
+		cout<<"[0] Volver a Inicio"<<endl;
+	  	cin>>opcion;
+		if(opcion==1)
+	 	{
+		    cout<<"BIENVENIDA EMPRESA!"<<endl;
+			cout<<"Nombre de Empresa"<<endl;
+			cout<<"___"<<endl;
+			NombreEmpresa(nombreempresa);
+			cout<<"___"<<endl;
+			cout<<"Ingrese Usuario"<<endl;
+			Usuario(u);
+			cout<<"___"<<endl;
+			cout<<"Tipo de Empresa"<<endl;
+			cout<<"___"<<endl;
+			TipoDeEmpresa(t);
+			cout<<"Actividad Económica"<<endl;
+		    cout<<"___"<<endl;
+		    empresaActividadEconomica(opcion);
+		    cout<<"___"<<endl;
+		    cout<<"Tamano"<<endl;
+		    cout<<"___"<<endl;
+		    empresaTamano(opcion);  
+		    cout<<"___"<<endl;
+		    cout<<"Su cuenta ha sido registrada con EXITO"<<endl;
+		    Pantallados(f);
+		}
+		if(opcion==2)
+		{
+		    cout<<"BIENVENIDO INFLUENCER!"<<endl;
+		    cout<<"___________________"<<endl;
+		    Nombre(n);
+		    cout<<"___________________"<<endl;
+            Apellidos(a);
+		    cout<<"___________________"<<endl;
+			cout<<"Ingrese Usuario"<<endl;
+			Usuario(u);
+		    cout<<"___________________"<<endl;
+			cout<<"Categoria"<<endl;
+		    cout<<"___________________"<<endl;
+		    CategoriaInfluencer(opcion);
+		    cout<<"___________________"<<endl;
+		    Seguidores(s);  
+		    cout<<"___________________"<<endl;
+		    cout<<"Servicio"<<endl;
+		    cout<<"___________________"<<endl;
+		    ServicioInfluencer(opcion);
+		    cout<<"___________________"<<endl;
+		    cout<<"Presupuesto"<<endl;
+		    cout<<"___________________"<<endl;    
+		    PresupuestoInfluencer(opcion);
+		    cout<<"Su cuenta ha sido registrada con EXITO"<<endl;
+		    Pantallados(f);
+		}
+		if(opcion==0)
+	  	{
+	    	Inicio(opcion);
+	  	}
+	}while((opcion<0)||(opcion>2));
+  	getch ();
+}
+
+void TipodeCuenta(int cuenta)
+{
+	int t;
+	do
+	{
+	cout<<"Seleccione: "<<endl;
+	cout<<"--------------------"<<endl;
+	cout<<"[1] Empresa "<<endl;
+	cout<<"[2] Infuencer "<<endl;
+	cin>>t;
+	}
+	while((t<1)||(t>2));
+}
+
+void Inicio(int o)
+{
+	int opcion, t,h;
+	string u[MAX], n[MAX], a[MAX], e[MAX], c[MAX], p[MAX], x[MAX];
+	do{
+	cout<<"INICIO"<<endl;
+    cout<<"[1] Iniciar sesion"<<endl;
+    cout<<"[2] Registrarse "<<endl;
+    cout<<"[0] Finalizar "<<endl;
+    cin>>opcion;
+    switch(opcion)
+    {
+        case 1:
+                Usuario(u);
+                ContrasenaInicio(c);
+                Pantallados(h);
+                break;
+        case 2:
+                Correo(e);
+                ContrasenaRegistro(x,p);
+                break;
+        case 0:
+                cout<<"Salir"<<endl;
+                exit (-1);
+                break;
+        default:
+                cout<<"Opcion invalida"<<endl;
+	}
+	}while((opcion<0)||(opcion>2));
+	getch();
+}
+
+void Correo(string email[])
+{
+    cin.ignore();
+  	string e;
+    cout<<"Correo electronico: "<<endl;
+    getline(cin,e);
+}
+void Usuario(string user[])
+{
+	string u;
+    cout<<"Usuario: "<<endl;
+    cin>>u;
+}
+void ContrasenaRegistro(string password[], string passwordos[])
+{
+    string x,p;
+    do {
+    cout<<"Contrasena: "<<endl;
+    cin>>x;
+    cout<<"Confirmar contrasena: "<<endl;
+    cin>>p;
+    if(x!=p)
+    {
+      cout<<"La contrasena no coincide, ingrese nuevamente: "<<endl;
+  }
+    }
+    while(x!=p);    
+}
+void ContrasenaInicio(string passwordinicio[])
+{
+    string c;
+    cout<<"Contrasena: "<<endl;
+    cin>>c;
+}
+
+void NombreEmpresa(string empresa[])
+{
+	cin.ignore();
+	string name;
+	cout<<"Nombre de la Empresa:"<<endl;
+    getline(cin,name);
+}
+
+void TipoDeEmpresa(int tipo)
+{
+	do{
+	cout<<"Seleccione el tipo de empresa"<<endl;
+	cout<<"[1] E-commerce"<<endl;
+	cout<<"[2] B2B Brand"<<endl;
+	cout<<"[3] B2C Brand"<<endl;
+	cin>>tipo;
+	}while((tipo<1)||(tipo>3));
+}
+
+void empresaActividadEconomica(int opcion)
+{
+  int categoria;
+  string departamento[MAX];
+  do{
+  cout<<"Seleccione a cual de las siguientes actividades economicas pertenece su empresa:"<<endl;
+  cout<<"[1]   Industrial"<<endl;
+  cout<<"[2]   Agricola"<<endl;
+  cout<<"[3]   Ganaderia"<<endl;
+  cout<<"[4]   Agro Industriales"<<endl;
+  cout<<"[5]   Minera"<<endl;
+  cout<<"[6]   Comercio Minorista"<<endl;
+  cout<<"[7]   Comercio Mayorista"<<endl;
+  cout<<"[8]   Servicios"<<endl;  
+  cout<<"[9]   Construccion"<<endl;  
+  cout<<"[10]  Administracion publica"<<endl;  
+  cout<<"___"<<endl;
+  cin>>categoria;
+	}while((categoria<1)||(categoria>10));
+  cout<<"___"<<endl;
+  Ciudad(departamento);
+  cout<<"___"<<endl;
+}
+
+void empresaTamano(int opcion)
+{
+  int trabajadores;
+  cout<<"Cuantos trabajadores tiene su empresa?"<<endl;
+  cin>>trabajadores;
+  if((trabajadores>0) && (trabajadores<=10))
+  {
+    cout<<"Es una MicroEmpresa"<<endl;
+  }
+  if((trabajadores>10) && (trabajadores<=49))
+  {
+    cout<<"Es una Pequeña Empresa"<<endl;
+  }
+  if((trabajadores>49) && (trabajadores<=250))
+  {
+  cout<<"Es una Mediana Empresa"<<endl;
+  }
+  if(trabajadores>250)
+  {
+  cout<<"Es una Grande Empresa"<<endl;
+  }
+}
+
+void empresaServicio(int opcion)
+{
+  int servicio;
+  cout<<"¿Qué servicio desearia adquirir?"<<endl;
+  cout<<"  Seleccione uno"<<endl;
+  cout<<"[1]   Post en Redes Sociales"<<endl;
+  cout<<"[2]   Video en Redes Sociales"<<endl;
+  cout<<"[3]   Post y Video en Redes Sociales"<<endl;
+  cout<<"[4]   Maestro de Ceremonia"<<endl;
+  cout<<"[5]   Participacion en Eventos"<<endl;
+  cin>>servicio;
+  if(servicio==1)
+  {
+    string evento1;
+    cout<<"En que Red Social le interesaria publicitar?"<<endl;
+    cin>>evento1;
+  }  
+  if(servicio==2)
+  {
+    string evento2;
+    cout<<"En que Red Social le interesaria publicitar?"<<endl;
+    cin>>evento2;
+  }
+  if(servicio==3)
+  {
+    string evento3;
+    cout<<"En que Red Social le interesaria publicitar?"<<endl;
+    cin>>evento3;
+  } 
+  if(servicio==4)
+  {
+    int fecha;
+    string mes;
+    cout<<"En que dia y mes se realizara el evento?"<<endl;
+    cout<<"Dia: ";
+    cin>>fecha;
+    cout<<"Mes: ";
+    cin>>mes;
+  }  
+  if(servicio==5)
+  {
+    int evento4;
+    string otroevento;
+    cout<<"En que tipo evento le intersaria que participe el/la influencer?"<<endl;
+    cout<<"[1] FexpoCruz"<<endl;
+    cout<<"[2] Ferias automotrices"<<endl;
+    cout<<"[3] Ferias agronomicas"<<endl;
+    cout<<"[4] Ferias empresariales"<<endl;
+    cout<<"[5] Ferias universitarias"<<endl;
+    cout<<"[6] Otro"<<endl;
+    cin>>evento4;
+    if(evento4==6)
+    {
+      cout<<"En que otro evento le interesaria que participe el/la influencer?"<<endl;
+      cin>>otroevento;
+    }
+  }
+}
+
+void Ciudad(string dep[])
+{
+	cin.ignore();
+	string city;
+	cout<<"En que departamento se encuentra la empresa?"<<endl;
+    getline(cin,city);
+}
+
+void empresapresupuesto(int opcion)
+{
+  int precio;
+  cout<<"Cuanto estaria dispuesto a pagar por el tipo de servicio que requiere? DIGITE EL PRECIO EN DÓLARES"<<endl;
+  cin>>precio;
+}
+
+void Nombre(string name[])
+{
+    string n;
+    cout<<"Nombre(s): "<<endl;
+    cin>>n;
+}
+void Apellidos(string lastname[])
+{
+    cin.ignore();
+    string a;
+    cout<<"Apellido(s): "<<endl;
+    getline(cin,a);
+}
+
+void CategoriaInfluencer(int opcion)
+{
+  int seguidores,c;
+  cout<<"Seleccione a que categoria pertenece"<<endl;
+  cout<<"[1]   Celebrity"<<endl;
+  cout<<"[2]   Fitness"<<endl;
+  cout<<"[3]   Gamer"<<endl;
+  cout<<"[4]   Foodie"<<endl;
+  cout<<"[5]   Entretenimiento"<<endl;
+  cout<<"[6]   Viaje"<<endl;
+  cout<<"[7]   Moda"<<endl;      
+  cout<<"___________________"<<endl;
+  cin>>c;
+}
+
+void ServicioInfluencer(int opcion)
+{
+  int servicio;
+  cout<<"Que servicio brinda?"<<endl;
+  cout<<"  Selecciones uno"<<endl;
+  cout<<"[1]   Post en Redes Sociales"<<endl;
+  cout<<"[2]   Video en Redes Sociales"<<endl;
+  cout<<"[3]   Post y Video en Redes Sociales"<<endl;
+  cout<<"[4]   Maestro de Ceremonia"<<endl;
+  cout<<"[5]   Participacion en Eventos"<<endl;
+  cout<<"[6]   Todos los anteriores"<<endl;
+  cin>>servicio;
+  if((servicio==5)||(servicio==6))
+  {
+    int evento;
+    string otroevento;
+    cout<<"En que eventos suele participar?"<<endl;
+    cout<<"[1] FexpoCruz"<<endl;
+    cout<<"[2] Ferias automotrices"<<endl;
+    cout<<"[3] Ferias agronomicas"<<endl;
+    cout<<"[4] Ferias empresariales"<<endl;
+    cout<<"[5] Ferias universitarias"<<endl;
+    cout<<"[6] Otro"<<endl;
+    cin>>evento;
+    if(evento==6)
+    {
+      cout<<"En que otro evento ha participado?"<<endl;
+      cin>>otroevento;
+    }
+  }  
+}
+
+void PresupuestoInfluencer(int opcion)
+{
+  int precio;
+  cout<<"Cuanto cobra por su servico de Influencer? EN DOLARES"<<endl;
+  cin>>precio;
+}
+
+void cargarRedSocial(string RS[])
+{
+  string i;
+  cout<<"En que red social trabaja?"<<endl;
+  cin>>i;
+  cout<<"Red Social ["<<i<<"]"<<endl;
+}
+void mostrarRedSocial(string RS[])
+{
+  int i;
+  cout<<"Red Social ["<<i<<"]"<<RS[i]<<endl;
+}
+
+void Seguidores(int followers)
+{
+  int s;
+  cout<<"Cuantos seguidores tiene en esa red social?"<<endl;
+  cin>>s;
+  if((s>0) && (s<=10000))
+  {
+    cout<<" - Es un Nano Influencer"<<endl;
+  }
+  if((s>10000) && (s<=100000))
+  {
+    cout<<" - Es un Micro Influencer"<<endl;
+  }
+  if((s>100000) && (s<=1000000))
+  {
+  cout<<" - Es un Macro Influencer"<<endl;
+  }
+  if(s>1000000)
+  {
+  cout<<" - Es un Mega Influencer"<<endl;
+  }
+}
+
+void Pantallados(int a)
+{
+	do{
+	cout<<"[1] SIGUIENTE"<<endl;
+	cout<<"[0] SALIR"<<endl;
+	cin>>a;
+	if(a==1)
+	{
+		cout<<"Bienvenido!"<<endl;
+		Pantallados_1(a);
+	}
+	else if(a==0)
+	{
+		Inicio(a);
+	}
+	else
+	{
+		cout<<"Opcion incorrecta, ingrese una valida"<<endl;
+	}
+	}while((a<0)||(a>1));
+}
+
+void Pantallados_1(int b)
+{
+	cout<<"[1]  Explorar"<<endl;
+	cout<<"[2]  Bandeja de entrada"<<endl;
+	cout<<"[3]  Configuracion"<<endl;
+	cin>>b;
+	switch(b)
+	{
+		case 1: cout<<"Catalogo de Influencer"<<endl;
+				Sleep(2000);
+				cout<<"La app no responde"<<endl;
+				Sleep(1000);
+				cout<<"Regresando...."<<endl;
+				Sleep(1000);
+				Pantallados_1(b);
+				break;
+		case 2: cout<<"No tiene ningun mensaje"<<endl;
+				Sleep(2000);
+				cout<<"La app no responde"<<endl;
+				Sleep(1000);
+				cout<<"Regresando...."<<endl;
+				Sleep(1000);
+				Pantallados_1(b);
+				break;
+		case 3: Configuracion(b);
+				break;
+		default: cout<<"Error"<<endl;
+				break; 
+	}
+}
+
+void Configuracion(int c)
+{
+	cout<<"[1]  Editar Perfil"<<endl;
+	cout<<"[2]  Notificaciones"<<endl;
+	cout<<"[3]  Seguridad"<<endl;
+	cout<<"[0]  Cerrar sesion"<<endl;
+	cin>>c;
+	Sleep(2000);
+	cout<<"La app no responde"<<endl;
+	Sleep(1000);
+	cout<<"Regresando...."<<endl;
+	Sleep(1000);
+	Inicio(c);
+}
